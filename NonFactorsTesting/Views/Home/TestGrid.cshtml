@@ -1,0 +1,67 @@
+﻿@model System.Collections.Generic.List<NonFactorsTesting.Models.Rows>
+
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-3.1.0.js"></script>
+<link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet" />
+<script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
+<!DOCTYPE html>
+<style>
+    td {
+        white-space: nowrap;
+    }
+
+</style>
+
+
+
+@(Html
+      .Grid(Model)
+      .Build(columns =>
+      {
+          columns.Add(model => model.Test1).Titled("Name").Filterable(false);
+          columns.Add(model => model.Test2).Titled("Surname").Filterable(false);
+
+          columns.Add(model => model.Test3).Titled("Age").Filterable(true);
+          columns.Add(model => model.Test4).Titled("Birth date");
+          columns.Add(model => model.Test5).Titled("Employed");
+          columns.Add(model => model.Test6).Titled("Test6").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test7).Titled("Test7").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test8).Titled("Test8").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test9).Titled("Test9").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test10).Titled("Test10").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test11).Titled("Test11").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test12).Titled("Test12").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test13).Titled("Test13").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test14).Titled("Test14").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test15).Titled("Test15").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test16).Titled("Test16").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test17).Titled("Test17").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test18).Titled("Test18").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test19).Titled("Test19").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test20).Titled("Test20").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test21).Titled("Test21").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test22).Titled("Test22").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test23).Titled("Test23").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test24).Titled("Test24").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test25).Titled("Test25").Sortable(true).Filterable(true);
+          columns.Add(model => model.Test26).Titled("Test26").Sortable(true).Filterable(true);
+
+
+
+
+
+
+
+
+
+
+
+      })
+      .Filterable()
+      )
+
+<script>
+    $('.mvc-grid').mvcgrid();
+</script>
