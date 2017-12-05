@@ -198,7 +198,7 @@ var MvcGrid = (function () {
             var filterLeft = filter.offset().left;
             var filterTop = filter.offset().top;
             var filterHeight = filter.height();
-            var winWidth = $(window).width();
+            var winWidth = $(document).width();
             var popupWidth = popup.width();
 
             var popupTop = filterTop + filterHeight / 2 + 14;
