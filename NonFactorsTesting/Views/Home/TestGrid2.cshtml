@@ -1,0 +1,40 @@
+﻿@model IEnumerable<NonFactorsTesting.Models.Rows>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+
+    <script src="~/Scripts/jquery-3.1.0.js"></script>
+    <script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
+    <script src="~/Scripts/MvcGrid/CustomFilter.js"></script>
+    <link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div>
+    
+    <a href=@Url.Action("TestGrid")> Grid one test</a>
+    <p>
+        attempting to replacate behavior of <a href="http://mvc-grid.azurewebsites.net/Column/CustomFilter">CustomFilter</a>
+    </p>
+    @(Html
+          .Grid(Model)
+          .Build(columns =>
+          {
+              columns.Add(model => model.Test2).Titled("Name").Filterable(true).FilteredAs("Custom");
+              columns.Add(model => model.Test3).Titled("Surname").Filterable(true)
+                  .MultiFilterable(true).FilteredAs("Custom");
+              columns.Add(model => model.Test4).Titled("Age");
+              columns.Add(model => model.Test5).Titled("Birth day");
+              columns.Add(model => model.Test6).Titled("Employed");
+          })
+          )
+</div>
+</body>
+</html>

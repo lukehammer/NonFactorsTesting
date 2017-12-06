@@ -5,8 +5,11 @@
     Layout = null;
 }
 <script src="~/Scripts/jquery-3.1.0.js"></script>
-<link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet" />
 <script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
+
+<link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet" />
+
+
 <!DOCTYPE html>
 <style>
     td {
@@ -14,14 +17,16 @@
     }
 
 </style>
+<a href=@Url.Action("TestGrid2")>Test Grid 2</a>
 
+<p >attempting to replacate behavior of  <a href="http://mvc-grid.azurewebsites.net/Filter/Register">http://mvc-grid.azurewebsites.net/Filter/Register</a>  </p>
+<p >But with Custom Enum. </p>
 
 
 @(Html.Grid(Model)
       .Build(columns =>
       {
-          columns.Add(model => model.InForeCastType).Titled("InForeCastType").Sortable(true).Filterable(true);
-          //.FilteredAs("InForeCastType");
+          columns.Add(model => model.InForeCastType).Titled("InForeCastType").Sortable(true).FilteredAs("InForeCastType");
           columns.Add(model => model.Test2).Titled("Test2").Filterable(false);
           columns.Add(model => model.Test3).Titled("Test3").Filterable(true);
           columns.Add(model => model.Test4).Titled("Test4");
@@ -48,10 +53,40 @@
           columns.Add(model => model.Test25).Titled("Test25").Sortable(true).Filterable(true);
           columns.Add(model => model.Test26).Titled("Test26").Sortable(true).Filterable(true);
       })
-      .Filterable()
+      .Filterable().Sortable()
       )
-<script>var InForeCastTypeEqual = (function () {
-    function InForeCastTypeEqual() {
+
+
+
+<div>
+    <div class="popup-arrow"></div>
+    <div class="popup-content">
+        <div class="first-filter popup-group">
+            <p>just testing the pop</p>
+            <ul class="mvc-grid-boolean-filter">
+                <li data-value="0">@(((InForeCastType) 0).ToString()) </li>
+                <li data-value="1"> @(((InForeCastType) 1).ToString()) </li>
+                <li data-value="2"> @(((InForeCastType) 2).ToString()) </li>
+                <li data-value="3"> @(((InForeCastType) 3).ToString()) </li>
+
+            </ul>
+        </div>
+    <div class="popup-button-group">
+            <button class="btn btn-success mvc-grid-apply" type="button">✔</button>
+            <button class="btn btn-danger mvc-grid-cancel" type="button">✘</button>
+            </div>
+        </div>
+
+</div>
+<script>
+ 
+    $(document).ready(function () {
+        console.log("ready!");
+  
+    
+      
+    var InForeCastTypeEqual = (function () {
+        function InForeCastTypeEqual() {
         }
 
         InForeCastTypeEqual.prototype = {
@@ -123,4 +158,9 @@
         filters: {
             'InForeCastType': new InForeCastTypeEqual()
         }
-    });</script>
+    });
+    });
+
+    $('.mvc-grid').mvcgrid();
+
+</script>

@@ -15,5 +15,13 @@ namespace NonFactorsTesting.Controllers
             ViewBag.Message = "Test Page";
            return View(Rows.CreateTestList(30));
         }
+
+
+
+        public ActionResult TestGrid2()
+        {
+            ViewBag.Message = "Test Page";
+            return View(Rows.CreateTestList(30));
+        }
     }
 }
