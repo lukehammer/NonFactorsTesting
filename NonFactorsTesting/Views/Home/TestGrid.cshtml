@@ -1,5 +1,5 @@
 ﻿@using NonFactorsTesting.Models
-@model System.Collections.Generic.List<NonFactorsTesting.Models.Rows>
+@model IEnumerable<Rows>
 
 @{
     Layout = null;
@@ -17,11 +17,11 @@
 
 
 
-@(Html
-      .Grid(Model)
+@(Html.Grid(Model)
       .Build(columns =>
       {
           columns.Add(model => model.InForeCastType).Titled("InForeCastType").Sortable(true).Filterable(true);
+          //.FilteredAs("InForeCastType");
           columns.Add(model => model.Test2).Titled("Test2").Filterable(false);
           columns.Add(model => model.Test3).Titled("Test3").Filterable(true);
           columns.Add(model => model.Test4).Titled("Test4");

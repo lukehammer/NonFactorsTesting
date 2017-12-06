@@ -49,8 +49,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NonFactors.Mvc.Grid, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NonFactors.Grid.Core.Mvc5.2.2.0\lib\net45\NonFactors.Mvc.Grid.dll</HintPath>
+    <Reference Include="Mvc.Grid.Core, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NonFactors.Grid.Core.Mvc5.4.2.0\lib\net45\Mvc.Grid.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -142,6 +142,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\MvcGrid\Fonts\GridGlyphs.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\IndexScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

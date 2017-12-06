@@ -76,7 +76,7 @@ namespace NonFactorsTesting.Models
         }
 
 
-        public static List<Rows> CreateTestList(int numberOfRows)
+        public static IEnumerable<Rows> CreateTestList(int numberOfRows)
         {
             List<Rows> list = new List<Rows>();
             for (int i = 0; i < 30; i++)
