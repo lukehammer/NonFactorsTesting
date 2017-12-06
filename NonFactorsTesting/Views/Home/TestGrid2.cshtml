@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NonFactorsTesting.Models.Rows>
+﻿@model IEnumerable<NonFactorsTesting.Models.Rows2>
 
 @{
     Layout = null;
@@ -14,7 +14,15 @@
     <script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
     <script src="~/Scripts/MvcGrid/CustomFilter.js"></script>
     <link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet"/>
+    <style>
+        td {
+            white-space: nowrap;
+            text-align: center;
+        }
 
+    </style>    
+    
+    
 </head>
 <body>
 <div>
@@ -22,17 +30,19 @@
     <a href=@Url.Action("TestGrid")> Grid one test</a>
     <p>
         attempting to replacate behavior of <a href="http://mvc-grid.azurewebsites.net/Column/CustomFilter">CustomFilter</a>
+        Currently the popup is not popping up. 
+    
     </p>
     @(Html
           .Grid(Model)
           .Build(columns =>
           {
-              columns.Add(model => model.Test2).Titled("Name").Filterable(true).FilteredAs("Custom");
-              columns.Add(model => model.Test3).Titled("Surname").Filterable(true)
+              columns.Add(model => model.Name).Titled("Name").Filterable(true).FilteredAs("Custom");
+              columns.Add(model => model.Surname).Titled("Surname").Filterable(true)
                   .MultiFilterable(true).FilteredAs("Custom");
-              columns.Add(model => model.Test4).Titled("Age");
-              columns.Add(model => model.Test5).Titled("Birth day");
-              columns.Add(model => model.Test6).Titled("Employed");
+              columns.Add(model => model.Age).Titled("Age");
+              columns.Add(model => model.BirthDay).Titled("Birth day");
+              columns.Add(model => model.Employed).Titled("Employed");
           })
           )
 </div>

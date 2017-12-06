@@ -39,3 +39,4 @@ c:\users\luke hammer\documents\visual studio 2015\Projects\NonFactorsTesting\Non
 c:\users\luke hammer\documents\visual studio 2015\Projects\NonFactorsTesting\NonFactorsTesting\obj\Debug\NonFactorsTesting.dll
 c:\users\luke hammer\documents\visual studio 2015\Projects\NonFactorsTesting\NonFactorsTesting\obj\Debug\NonFactorsTesting.pdb
 C:\Users\Luke Hammer\Documents\Visual Studio 2015\Projects\NonFactorsTesting\NonFactorsTesting\bin\Mvc.Grid.Core.dll
+C:\Users\Luke Hammer\Documents\Visual Studio 2015\Projects\NonFactorsTesting\NonFactorsTesting\bin\Faker.dll

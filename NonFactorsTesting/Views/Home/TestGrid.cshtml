@@ -21,6 +21,7 @@
 
 <p >attempting to replacate behavior of  <a href="http://mvc-grid.azurewebsites.net/Filter/Register">http://mvc-grid.azurewebsites.net/Filter/Register</a>  </p>
 <p >But with Custom Enum. </p>
+<p >Currently the popup is not poping up when a custom column one filter is selected </p>
 
 
 @(Html.Grid(Model)
@@ -62,7 +63,7 @@
     <div class="popup-arrow"></div>
     <div class="popup-content">
         <div class="first-filter popup-group">
-            <p>just testing the pop</p>
+            <p>just testing the pop-up code</p>
             <ul class="mvc-grid-boolean-filter">
                 <li data-value="0">@(((InForeCastType) 0).ToString()) </li>
                 <li data-value="1"> @(((InForeCastType) 1).ToString()) </li>
@@ -79,11 +80,6 @@
 
 </div>
 <script>
- 
-    $(document).ready(function () {
-        console.log("ready!");
-  
-    
       
     var InForeCastTypeEqual = (function () {
         function InForeCastTypeEqual() {
@@ -158,7 +154,6 @@
         filters: {
             'InForeCastType': new InForeCastTypeEqual()
         }
-    });
     });
 
     $('.mvc-grid').mvcgrid();
