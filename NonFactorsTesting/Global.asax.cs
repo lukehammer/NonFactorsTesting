@@ -18,8 +18,6 @@ namespace NonFactorsTesting
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-          //  MvcGrid.Filters.Register(typeof(InForeCastType), "Is", typeof(InForeCastTypeEqual));
         }
     }
 }
