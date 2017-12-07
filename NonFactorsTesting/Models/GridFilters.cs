@@ -11,11 +11,16 @@ namespace NonFactorsTesting.Models
 
     public class InForeCastTypeEqual : BaseGridFilter
     {
-
-
         public override Expression Apply(Expression expression)
         {
             return Expression.Equal(expression, Expression.Constant(null));
+
         }
-    }
+
+
+}
+
+
+
+
 }
