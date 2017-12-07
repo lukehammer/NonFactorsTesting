@@ -19,7 +19,7 @@ namespace NonFactorsTesting
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            MvcGrid.Filters.Register(typeof(InForeCastType), "Is", typeof(InForeCastTypeEqual));
+            MvcGrid.Filters.Register(typeof(InForeCastType), "Equals", typeof(InForeCastTypeEqual));
         }
     }
 }

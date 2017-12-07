@@ -8,8 +8,7 @@ namespace NonFactorsTesting.Models
     {
         public override Expression Apply(Expression expression)
         {
-            return Expression.Equal(expression,
-                Expression.Constant((InForeCastType)Enum.ToObject(typeof(InForeCastType), Value)));
+            return Expression.Equal(expression, Expression.Constant(typeof(InForeCastType)));
         }
     }
 }
