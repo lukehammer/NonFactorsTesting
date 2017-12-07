@@ -68,21 +68,22 @@
                 lang.NotSpecified = 'Not specified';
 
                 popup.html(
-                    '<div class="popup-arrow"></div>' +
-                    '<div class="popup-content">' +
+                    '<div class="popup-arrow"></div>'
+                    + '<div class="popup-content">' +
                     '<div class="first-filter popup-group">' +
                     '<ul class="mvc-grid-boolean-filter">' +
-                    '<li ' + (filter.first.val == '0' ? 'class="active" ' : '') + 'data-value="0">' + @(((InForeCastType)0).ToString()) + '</li>' +
-                    '<li ' + (filter.first.val == '1' ? 'class="active" ' : '') + 'data-value="1">' + @(((InForeCastType)1).ToString()) + '</li>' +
-                    '<li ' + (filter.first.val == '2' ? 'class="active" ' : '') + 'data-value="2">' + @(((InForeCastType)2).ToString()) + '</li>' +
-                    '<li ' + (filter.first.val == '3' ? 'class="active" ' : '') + 'data-value="3">' + @(((InForeCastType)3).ToString()) + '</li>' +
+                    '<li ' + (filter.first.val == '0' ? 'class="active" ' : '') + 'data-value="0"> ' + '@(((InForeCastType)1).ToString())' + ' </li>' +
+                    '<li ' + (filter.first.val == '1' ? 'class="active" ' : '') + 'data-value="1">' + '@(((InForeCastType)1).ToString())' + '</li>' +
+                    '<li ' + (filter.first.val == '2' ? 'class="active" ' : '') + 'data-value="2">' + '@(((InForeCastType)2).ToString())' + '</li>' +
+                    '<li ' + (filter.first.val == '3' ? 'class="active" ' : '') + 'data-value="3">' + '@(((InForeCastType)3).ToString())' + '</li>' +
                     '</ul>' +
                     '</div>' +
                     '<div class="popup-button-group">' +
                     '<button class="btn btn-success mvc-grid-apply" type="button">✔</button>' +
                     '<button class="btn btn-danger mvc-grid-cancel" type="button">✘</button>' +
                     '</div>' +
-                    '</div>');
+                    '</div>'
+                );
             },
 
             init: function (grid, column, popup) {
@@ -124,8 +125,8 @@
             }
         };;
 
-        return InForeCastTypeEqual;
-    })();
+    return InForeCastTypeEqual;
+})();
 
     $('.mvc-grid').mvcgrid({
         filters: {
