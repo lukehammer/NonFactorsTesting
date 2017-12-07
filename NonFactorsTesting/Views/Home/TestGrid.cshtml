@@ -17,17 +17,17 @@
     }
 
 </style>
-<a href=@Url.Action("TestGrid2")>Test Grid 2</a>
+@*<a href=@Url.Action("TestGrid2")>Test Grid 2</a>
 
 <p >attempting to replacate behavior of  <a href="http://mvc-grid.azurewebsites.net/Filter/Register">http://mvc-grid.azurewebsites.net/Filter/Register</a>  </p>
 <p >But with Custom Enum. </p>
-<p >Currently the popup is not poping up when a custom column one filter is selected </p>
+<p >Currently the popup is not poping up when a custom column one filter is selected </p>*@
 
 
 @(Html.Grid(Model)
       .Build(columns =>
       {
-          //columns.Add(model => model.InForeCastType).Titled("InForeCastType").Sortable(true).FilteredAs("InForeCastType");
+          columns.Add(model => model.InForeCastType).Titled("InForeCastType").Sortable(true).FilteredAs("InForeCastType");
           columns.Add(model => model.Test2).Titled("Test2").Filterable(false);
           columns.Add(model => model.Test3).Titled("Test3").Filterable(true);
           columns.Add(model => model.Test4).Titled("Test4");
@@ -57,8 +57,84 @@
       .Filterable().Sortable()
       )
 
-<script>
-    function InForeCastTypeEqual() {
-        $('.mvc-grid').mvcgrid(); }
-     
-</script>
+
+<script>var InForeCastTypeEqual = (function () {
+        function InForeCastTypeEqual() {
+        }
+
+        InForeCastTypeEqual.prototype = {
+            render: function (grid, popup, filter) {
+                var lang = $.fn.mvcgrid.lang.Number;
+                lang.NotSpecified = 'Not specified';
+
+                popup.html(
+                    '<div class="popup-arrow"></div>' +
+                    '<div class="popup-content">' +
+                    '<div class="first-filter popup-group">' +
+                    '<ul class="mvc-grid-boolean-filter">' +
+                    '<li ' + (filter.first.val == '0' ? 'class="active" ' : '') + 'data-value="0">' + @(((InForeCastType)0).ToString()) + '</li>' +
+                    '<li ' + (filter.first.val == '1' ? 'class="active" ' : '') + 'data-value="1">' + @(((InForeCastType)1).ToString()) + '</li>' +
+                    '<li ' + (filter.first.val == '2' ? 'class="active" ' : '') + 'data-value="2">' + @(((InForeCastType)2).ToString()) + '</li>' +
+                    '<li ' + (filter.first.val == '3' ? 'class="active" ' : '') + 'data-value="3">' + @(((InForeCastType)3).ToString()) + '</li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '<div class="popup-button-group">' +
+                    '<button class="btn btn-success mvc-grid-apply" type="button">✔</button>' +
+                    '<button class="btn btn-danger mvc-grid-cancel" type="button">✘</button>' +
+                    '</div>' +
+                    '</div>');
+            },
+
+            init: function (grid, column, popup) {
+                this.bindValue(grid, column, popup);
+                this.bindApply(grid, column, popup);
+                this.bindCancel(grid, column, popup);
+            },
+            bindValue: function (grid, column, popup) {
+                var values = popup.find('.first-filter li');
+                values.on('click.mvcgrid', function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                });
+            },
+            bindApply: function (grid, column, popup) {
+                var apply = popup.find('.mvc-grid-apply');
+                apply.on('click.mvcgrid', function () {
+                    popup.removeClass('open');
+                    column.filter.first.val = popup.find('.first-filter .active').data('value');
+                    if (column.filter.first.val == 'NotSpecified') {
+                        column.filter.first.type = 'Is';
+                    } else {
+                        column.filter.first.type = 'Equals';
+                    }
+
+                    grid.applyFilter(column);
+                    grid.reload();
+                });
+            },
+            bindCancel: function (grid, column, popup) {
+                var cancel = popup.find('.mvc-grid-cancel');
+                cancel.on('click.mvcgrid', function () {
+                    popup.removeClass('open');
+
+                    if (column.filter.first.type) {
+                        grid.cancelFilter(column);
+                        grid.reload();
+                    }
+                });
+            }
+        };;
+
+        return InForeCastTypeEqual;
+    })();
+
+    $('.mvc-grid').mvcgrid({
+        filters: {
+            'InForeCastType': new InForeCastTypeEqual()
+        }
+    });</script>
+
+
+
+@*<script>
+    $('.mvc-grid').mvcgrid();
+    </script>*@
